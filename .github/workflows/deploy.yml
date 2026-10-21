@@ -25,4 +25,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: dmityiry2504/express-app:latest
+          tags: dmitriy2504/express-app:latest
