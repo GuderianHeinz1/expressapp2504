@@ -1,0 +1,19 @@
+services:
+  app:
+    image: ${DOCKERHUB_USERNAME}/express-app:latest
+    ports:
+      - 8080:8080
+    labels:
+      # Watchtower обновляет только контейнеры с этой меткой
+      - com.centurylinklabs.watchtower.enable=true
+    container_name: express-app
+
+  watchtower:
+    image: containrrr/watchtower
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=60
+      - WATCHTOWER_LABEL_ENABLE=true
+      - WATCHTOWER_CLEANUP=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: watchtower
