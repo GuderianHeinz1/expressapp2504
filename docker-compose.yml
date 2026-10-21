@@ -1,6 +1,6 @@
 services:
   app:
-    image: ${DOCKERHUB_USERNAME}/express-app:latest
+    image: dmityiry2504/express-app:latest
     ports:
       - 8080:8080
     labels:
